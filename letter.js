@@ -30,11 +30,11 @@ const Letter = function(aLetter){
 module.exports = Letter;
 
 // Throw some code down here to test this out
-const letterA = new Letter("a");
+/* const letterA = new Letter("a");
 console.log("The letter: ", letterA.displayIfGuessed());
 console.log("Let's try passing a guess of b");
 letterA.checkIfCorrect("b");
 console.log("The letter: ", letterA.displayIfGuessed());
 console.log("Let's try passing a guess of a");
 letterA.checkIfCorrect("a");
-console.log("The letter: ", letterA.displayIfGuessed());
+console.log("The letter: ", letterA.displayIfGuessed()); */
