@@ -14,16 +14,16 @@ const Word = function(aWord){
     // Create an array to hold letter objects
     this.letters = [];
     // Iterate through the letter characters array to create the letter objects
-    this.addLetters = function(aWordArray){
+    this.addLetters = function(){
         this.arrWord.forEach(item => {
             this.letters.push(new Letter(item));
         });
     };
+    // Do the same as above, but with map()
     // Display the word formatted with unguess/guessed letters
-    this.displayWord = function(letters){
+    this.displayWord = function(){
         // Use the array map() method to return an array with the guessed/unguessed letters?
-        // return this.letters.map(Letter.displayIfGuessed);
-        return this.letters;
+        return this.letters.map( someLetter => someLetter.displayIfGuessed() );
     };
 };
 
@@ -38,6 +38,6 @@ const wordHangman = new Word("bacon");
 // Display the array of word's letter objects
 wordHangman.addLetters();
 // console.log( wordHangman.letters );
-
+console.log( wordHangman.arrWord );
 // Display the formatted output showing unguessed/guessed letters in the word
-console.log( wordHangman.displayWord() );
+console.log( wordHangman.displayWord().join(" ") );

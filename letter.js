@@ -11,6 +11,7 @@ A function that takes a character as an argument and checks it against the under
 const Letter = function(aLetter){
     this.letter = aLetter.toUpperCase();
     this.guessed = false;
+    // TODO: turn these into prototype methods
     this.displayIfGuessed = function(){
         if(this.guessed){
             return this.letter;
