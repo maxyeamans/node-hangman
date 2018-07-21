@@ -9,9 +9,12 @@ A function that returns the underlying character if the letter has been guessed,
 A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly */
 
 const Letter = function(aLetter){
+    // Autoformat the mystery phrase to uppercase
     this.letter = aLetter.toUpperCase();
-    this.guessed = false;
+    // Make all spaces in the phrase visible by default so the user doesn't have to waste a guess checking
+    this.guessed = this.letter === " " ? true : false;
     // TODO: turn these into prototype methods
+    // Display the letter if it has been guessed, otherwise display an underscore
     this.displayIfGuessed = function(){
         if(this.guessed){
             return this.letter;
@@ -20,6 +23,7 @@ const Letter = function(aLetter){
             return "_"
         }
     };
+    // Check to see if the guessed letter is in the mystery word/phrase
     this.checkIfCorrect = function(input){
         if(input.toUpperCase() === this.letter) {
             this.guessed = true;

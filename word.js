@@ -12,32 +12,33 @@ const Word = function(aWord){
     // Split the word into an array of individual letter characters
     this.arrWord = aWord.split("");
     // Create an array to hold letter objects
-    this.letters = [];
-    // Iterate through the letter characters array to create the letter objects
-    this.addLetters = function(){
-        this.arrWord.forEach(item => {
-            this.letters.push(new Letter(item));
-        });
-    };
-    // Do the same as above, but with map()
+    this.letters = this.arrWord.map( letter => new Letter(letter) );
     // Display the word formatted with unguess/guessed letters
     this.displayWord = function(){
-        // Use the array map() method to return an array with the guessed/unguessed letters?
-        return this.letters.map( someLetter => someLetter.displayIfGuessed() );
+        // Iterate through the letters array, determine if each letter has been guessed, then join (concatenate) the letters into a string. Return the string.
+        return this.letters.map( someLetter => someLetter.displayIfGuessed() ).join(" ");
+    };
+    this.guessLetter = function(input){
+        this.letters.forEach( letter => {
+            letter.checkIfCorrect(input);
+        });
     };
 };
 
-// Throw some code down here to test this out.
+// Export the Word constructor
+module.exports = Word;
 
-const wordHangman = new Word("bacon");
+/* // Throw some code down here to test this out.
 
-// Displays an array of the word's letters, however they were input
-// console.log(wordHangman.arrWord);
-// Expected output: [ 'b', 'a', 'c', 'o', 'n' ]
+const wordHangman = new Word("star wars");
 
-// Display the array of word's letter objects
-wordHangman.addLetters();
 // console.log( wordHangman.letters );
 console.log( wordHangman.arrWord );
 // Display the formatted output showing unguessed/guessed letters in the word
-console.log( wordHangman.displayWord().join(" ") );
+console.log( wordHangman.displayWord() );
+// Guess a letter
+wordHangman.guessLetter("s");
+console.log( wordHangman.displayWord() );
+// Guess a letter
+wordHangman.guessLetter("r");
+console.log( wordHangman.displayWord() ); */
